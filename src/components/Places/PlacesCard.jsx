@@ -61,7 +61,7 @@ const PlacesCard = ({ singleProduct, addToCart }) => {
             <div className="relative shadow-md transition-all duration-500 hover:shadow-lg cursor-pointer rounded-md overflow-hidden bg-white max-w-[280px] sm:max-w-[200px] m-2 flex flex-col">
 
             {/* Fixed Image Section */}
-            <div className="h-[200px] sm:h-[150px] bg-gray-100">
+            <div className="h-[140px] sm:h-[110px] bg-gray-90">
                 <img
                     src={singleProduct.url}
                     alt={singleProduct.title}
