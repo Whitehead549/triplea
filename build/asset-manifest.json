@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/static/css/main.945e53fe.css",
+    "main.js": "/static/js/main.8f2a9f20.js",
+    "static/media/main.mp4": "/static/media/main.58d4a5db01749077db99.mp4",
+    "static/media/shoeeeBanner.png": "/static/media/shoeeeBanner.5a42b0c612dfdbece315.png",
+    "static/media/enginner.jpeg": "/static/media/enginner.f8794e6bb6020e655de5.jpeg",
+    "static/media/shoe_banner1.jpg": "/static/media/shoe_banner1.77ca1a7abce04c6d0ff9.jpg",
+    "static/media/AAA-01.png": "/static/media/AAA-01.60e34b1560b6ec6561d6.png",
+    "static/media/logo.png": "/static/media/logo.97452977c84d0a592fb2.png",
+    "index.html": "/index.html",
+    "main.945e53fe.css.map": "/static/css/main.945e53fe.css.map",
+    "main.8f2a9f20.js.map": "/static/js/main.8f2a9f20.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.945e53fe.css",
+    "static/js/main.8f2a9f20.js"
+  ]
+}
