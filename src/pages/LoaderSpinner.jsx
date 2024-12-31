@@ -11,7 +11,7 @@ const LoaderSpinner = () => {
         height: '60px',
         animation: 'spin 2s linear infinite'
       }}></div>
-      <p className="text-center text-white">Loading...</p>
+      
       <style>{`
         @keyframes spin {
           0% { transform: rotate(0deg); }
