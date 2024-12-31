@@ -58,44 +58,44 @@ const PlacesCard = ({ singleProduct, addToCart }) => {
         };
     
         return (
-            <div className="relative shadow-md transition-all duration-500 hover:shadow-lg cursor-pointer rounded-md overflow-hidden bg-white max-w-[200px] m-1 flex flex-col">
+            <div className="relative shadow-md transition-all duration-500 hover:shadow-lg cursor-pointer rounded-md overflow-hidden bg-white max-w-[280px] sm:max-w-[200px] m-2 flex flex-col">
 
-                {/* Fixed Image Section */}
-                <div className="h-1/2 bg-gray-100">
-                    <img
-                        src={singleProduct.url}
-                        alt={singleProduct.title}
-                        className="object-contain w-full h-full"
-                    />
+            {/* Fixed Image Section */}
+            <div className="h-[200px] sm:h-[150px] bg-gray-100">
+                <img
+                    src={singleProduct.url}
+                    alt={singleProduct.title}
+                    className="object-cover w-full h-full"
+                />
+            </div>
+        
+            {/* Fixed Details Section */}
+            <div className="flex flex-col justify-between p-3 flex-grow">
+                <h1 className="font-semibold text-sm text-gray-900 truncate">
+                    {singleProduct.title}
+                </h1>
+        
+                <p className="text-xs text-gray-500 truncate">
+                    {singleProduct.description}
+                </p>
+        
+                {/* Star Rating */}
+                <div className="flex items-center mt-1" onMouseLeave={handleMouseLeave}>
+                    {[...Array(5)].map((_, index) => {
+                        const starValue = index + 1;
+                        const isFilled = (hoverValue || currentRating) >= starValue;
+                        return (
+                            <StarIcon
+                                key={index}
+                                filled={isFilled}
+                                onClick={() => handleClick(starValue)}
+                                onMouseOver={() => handleMouseOver(starValue)}
+                            />
+                        );
+                    })}
                 </div>
-    
-                {/* Fixed Details Section */}
-                <div className="h-1/2 p-3 space-y-1 flex flex-col justify-between">
-                    <h1 className="font-semibold text-sm text-gray-900 truncate">
-                        {singleProduct.title}
-                    </h1>
-    
-                    <p className="text-xs text-gray-500 truncate">
-                        {singleProduct.description}
-                    </p>
-    
-                    {/* Star Rating */}
-                    <div className="flex items-center" onMouseLeave={handleMouseLeave}>
-                        {[...Array(5)].map((_, index) => {
-                            const starValue = index + 1;
-                            const isFilled = (hoverValue || currentRating) >= starValue;
-                            return (
-                                <StarIcon
-                                    key={index}
-                                    filled={isFilled}
-                                    onClick={() => handleClick(starValue)}
-                                    onMouseOver={() => handleMouseOver(starValue)}
-                                />
-                            );
-                        })}
-                    </div>
-    
-                    <div className="flex justify-between items-center mt-1">
+        
+                <div className="flex justify-between items-center mt-2">
                     <p className="font-bold text-xs text-gray-800">
                         N{singleProduct.price}
                     </p>
@@ -105,16 +105,17 @@ const PlacesCard = ({ singleProduct, addToCart }) => {
                     >
                         Add to Cart
                     </button>
-                  </div>
                 </div>
-    
-                {/* Pop-up Notification */}
-                {showPopup && (
-                    <div className="absolute top-0 left-0 right-0 bg-green-500 text-white text-center py-1 text-xs shadow-md">
-                        Added to Cart
-                    </div>
-                )}
             </div>
+        
+            {/* Pop-up Notification */}
+            {showPopup && (
+                <div className="absolute top-0 left-0 right-0 bg-green-500 text-white text-center py-1 text-xs shadow-md">
+                    Added to Cart
+                </div>
+            )}
+        </div>
+        
         );
     };
     
