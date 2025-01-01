@@ -31,61 +31,73 @@ export const IndividualCartProduct = ({ cartProduct, cartProductIncrease, cartPr
   }
 
   return (
-    <div className="flex flex-col bg-white shadow-md rounded-lg overflow-hidden p-4 mb-4 transform transition duration-500 hover:scale-105">
-  <div className="flex items-center mb-4">
+    <div className="bg-white shadow-md rounded-lg overflow-hidden p-4 mb-4 transform transition-transform duration-300 hover:scale-105">
+  <div className="flex items-start">
+    {/* Product Image */}
     <img 
-      className="w-1/4 md:w-1/5 h-auto object-contain rounded-lg mr-4" 
+      className="w-16 h-16 object-cover rounded-lg mr-4" 
       src={cartProduct.url} 
-      alt="product-img" 
+      alt={cartProduct.title} 
     />
     <div className="flex-1">
-      <div className="flex flex-wrap mb-2">
-        <div className="text-lg font-semibold mr-4">
+      {/* Product Details */}
+      <div className="mb-2">
+        <h3 className="text-sm font-semibold text-gray-800 truncate">
           {cartProduct.title}
-        </div>
-        <div className="text-xl font-bold text-green-600 mr-4">
+        </h3>
+        <p className="text-xs text-gray-500 truncate">
+          {cartProduct.description}
+        </p>
+        <div className="text-sm font-bold text-green-600">
           $ {cartProduct.price}
         </div>
-        <div className="text-gray-600 text-sm line-clamp-2 mr-4">
-          {cartProduct.description}
-        </div>
       </div>
+
+      {/* Quantity Controls */}
       <div className="flex items-center space-x-2 mb-2">
-        <span className="text-gray-600 text-sm">Quantity</span>
-        <div className="flex items-center border border-gray-300 rounded-lg">
+        <label className="text-xs text-gray-500">Quantity:</label>
+        <div className="flex items-center border border-gray-300 rounded-md overflow-hidden">
           <button 
-            className="bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-l-lg p-2" 
+            className="bg-gray-100 hover:bg-gray-200 text-gray-700 px-2 py-1 text-xs focus:outline-none"
             onClick={handleCartProductDecrease}
           >
-            <Icon icon={minus} size={16} />
+            <Icon icon={minus} size={14} />
           </button>
-          <div className="px-4 text-sm">{cartProduct.qty}</div>
+          <div className="px-3 py-1 text-xs text-gray-800 font-medium bg-gray-50">
+            {cartProduct.qty}
+          </div>
           <button 
-            className="bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-r-lg p-2" 
+            className="bg-gray-100 hover:bg-gray-200 text-gray-700 px-2 py-1 text-xs focus:outline-none"
             onClick={handleCartProductIncrease}
           >
-            <Icon icon={plus} size={16} />
+            <Icon icon={plus} size={14} />
           </button>
         </div>
       </div>
-      <div className="flex items-center mb-2">
-        <span className="text-gray-600 text-sm">Total Price:</span>
-        <span className="text-lg font-bold text-blue-600 ml-2">
+
+      {/* Total Price */}
+      <div className="flex items-center space-x-2">
+        <span className="text-xs text-gray-500">Total:</span>
+        <span className="text-sm font-bold text-blue-600">
           $ {cartProduct.TotalProductPrice}
         </span>
-        <span className="text-gray-600 text-sm">size:</span>
-        <span className="text-lg font-bold text-blue-600 ml-2">
-          $ {cartProduct.size}
+        <span className="text-xs text-gray-500 ml-4">Size:</span>
+        <span className="text-sm font-bold text-blue-600">
+          {cartProduct.size}
         </span>
       </div>
     </div>
   </div>
-  <button 
-    className="self-end bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-lg"
-    onClick={handleCartProductDelete}
-  >
-    DELETE
-  </button>
+
+  {/* Delete Button */}
+  <div className="mt-3 flex justify-end">
+    <button 
+      className="bg-red-500 hover:bg-red-600 text-white py-1 px-4 rounded-md text-xs"
+      onClick={handleCartProductDelete}
+    >
+      DELETE
+    </button>
+  </div>
 </div>
 
   );
