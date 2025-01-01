@@ -168,6 +168,7 @@ const renderSection = (title, data, expandedCardId, toggleDetails, extraInfo, se
                       <p className="text-sm text-gray-600">Price: ${extra.data.price}</p>
                       <p className="text-sm text-gray-600">Quantity: {extra.data.qty}</p>
                       <p className="text-sm text-gray-600">Color: {extra.data.color}</p>
+                      <p className="text-sm text-gray-600">Color: {extra.data.size}</p>
                     </div>
                   </div>
                 ))}
