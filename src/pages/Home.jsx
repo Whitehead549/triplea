@@ -181,18 +181,17 @@ const Home = () => {
         <LoaderSpinner />
       ) : (
         <>
-         <div className="relative h-[400px] sm:h-[300px] md:h-[350px] lg:h-[400px]">
-  <video
-    autoPlay
-    loop
-    muted
-    className="absolute right-0 top-0 h-full w-full object-cover z-[-1]"
-  >
-    <source src={MainVid} type="video/mp4" />
-  </video>
-  <Hero />
-</div>
-
+          <div className='relative  h-[270px]'>
+            <video
+              autoPlay
+              loop
+              muted
+              className="absolute right-0 top-0 h-[270px] w-full object-cover z-[-1]"
+            >
+              <source src={MainVid} type="video/mp4" />
+            </video>
+            <Hero />
+          </div>
           
           
           <Places products={products} addToCart={addToCart} />

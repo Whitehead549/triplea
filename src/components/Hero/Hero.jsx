@@ -14,12 +14,12 @@ const Hero = () => {
 
   return (
     <div className="bg-black/20 h-full relative">
-      <div className="h-full flex justify-center items-center p-4 bg-primary/10">
+      <div className="h-full flex justify-center items-center p-4 pb-20 bg-primary/10">
         <div className="container grid grid-cols-1 gap-4 relative mt-80">
           {/* image section */}
           {showImage && (
             <div className="image-section absolute bottom-0 left-0" data-aos="fade-up" data-aos-delay="400">
-            <img src={Animate} alt="Description of image" className="w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32" />
+            <img src={Animate} alt="Description of image" className="w-12 h-12 sm:w-20 sm:h-20 md:w-32 md:h-30" />
           </div>
           
           )}
