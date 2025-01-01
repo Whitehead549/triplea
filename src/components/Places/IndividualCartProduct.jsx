@@ -79,11 +79,15 @@ export const IndividualCartProduct = ({ cartProduct, cartProductIncrease, cartPr
       <div className="flex items-center space-x-2">
         <span className="text-xs text-gray-500">Total:</span>
         <span className="text-sm font-bold text-blue-600">
-          $ {cartProduct.TotalProductPrice}
+          N {cartProduct.TotalProductPrice}
         </span>
         <span className="text-xs text-gray-500 ml-4">Size:</span>
         <span className="text-sm font-bold text-blue-600">
           {cartProduct.size}
+        </span>
+        <span className="text-xs text-gray-500 ml-4">Color:</span>
+        <span className="text-sm font-bold text-blue-600">
+          {cartProduct.color}
         </span>
       </div>
     </div>
