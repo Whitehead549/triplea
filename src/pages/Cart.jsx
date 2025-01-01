@@ -69,9 +69,14 @@ const Cart = () => {
 
                         const qty = newCartProducts.map(cartProduct => cartProduct.qty);
                         const price = newCartProducts.map(cartProduct => cartProduct.TotalProductPrice);
+                        // const size = newCartProducts.map(cartProduct => cartProduct.size);
+
+                        
 
                         const totalQty = qty.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
                         const totalPrice = price.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+                        
+
 
                         setTotalQty(totalQty);
                         setTotalPrice(totalPrice);

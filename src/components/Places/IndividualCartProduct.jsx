@@ -46,6 +46,12 @@ export const IndividualCartProduct = ({ cartProduct, cartProductIncrease, cartPr
         <div className="text-xl font-bold text-green-600 mr-4">
           $ {cartProduct.price}
         </div>
+        <div className="text-xl font-bold text-green-600 mr-4">
+          $ {cartProduct.size}
+        </div>
+        <div className="text-xl font-bold text-green-600 mr-4">
+          $ {cartProduct.color}
+        </div>
         <div className="text-gray-600 text-sm line-clamp-2 mr-4">
           {cartProduct.description}
         </div>
