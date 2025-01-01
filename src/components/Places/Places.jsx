@@ -1,7 +1,7 @@
 import React from 'react';
 import PlacesCard from './PlacesCard';
 
-const Places = ({ products, addToCart }) => {
+const Places = ({products, addToCart}) => {
   return (
     <div className='bg-night-sky min-h-screen flex  justify-center mt-0 p-0'>
       <div className='container'>

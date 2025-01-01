@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import PopUPbuy from '../Places/PopUPbuy'
 
 const PlacesCard = ({ singleProduct, addToCart }) => {
     const [showPopup, setShowPopup] = useState(false);
     const [currentRating, setCurrentRating] = useState(0); // Initialize current rating as 0
     const [hoverValue, setHoverValue] = useState(undefined); // Store hover value for previewing rating
+
+        // Function to handle the purchase click and show the popup
+        const purchase = () => {
+            setShowPopup(true);
+        };
 
     // Generate a random rating (either 4 or 5) when the component mounts
     useEffect(() => {
@@ -58,6 +64,8 @@ const PlacesCard = ({ singleProduct, addToCart }) => {
         };
     
         return (
+            <>
+            
             <div className="relative shadow-md transition-all duration-500 hover:shadow-lg cursor-pointer rounded-md overflow-hidden bg-white max-w-[280px] sm:max-w-[200px] m-2 flex flex-col">
 
             {/* Fixed Image Section */}
@@ -101,7 +109,7 @@ const PlacesCard = ({ singleProduct, addToCart }) => {
                     </p>
                     <button
                         className="bg-[#FF6A00] text-white py-0.5 px-1 text-[10px] rounded font-medium hover:bg-[#E55A00] transition duration-300"
-                        onClick={handleAddToCart}
+                        onClick={purchase}
                     >
                         Add to Cart
                     </button>
@@ -116,6 +124,15 @@ const PlacesCard = ({ singleProduct, addToCart }) => {
             )}
         </div>
         
+          {/* PopUPBuy Component as Modal */}
+            <PopUPbuy
+                singleProduct={singleProduct.sizes}
+                showPopup={showPopup}
+                setShowPopup={setShowPopup}
+                nameAndprice={singleProduct}
+                addToCart={addToCart}
+            />
+        </>
         );
     };
     

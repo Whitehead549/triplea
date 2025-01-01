@@ -204,7 +204,7 @@ export const AddProducts = () => {
                             >
                                 <option value="">Select Product Type</option>
                                 <option value="ladies">LADIES</option>
-                                <option value="shopitems">SHOP ITEMS</option>
+                                <option value="shopitems">Men</option>
                                 <option value="children">CHILDREN</option>
                             </select>
                             <input

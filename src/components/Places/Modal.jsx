@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { auth, db, storage } from '../../Config/Config'; // Import Firebase storage
-import { collection, getDocs, addDoc, deleteDoc, setDoc, doc } from 'firebase/firestore';
+import { collection, getDocs, addDoc, deleteDoc, query, setDoc, where, updateDoc, doc} from 'firebase/firestore';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -80,6 +80,86 @@ export const Modal = ({ TotalPrice, totalQty, hideModal }) => {
             await addDoc(collection(db, uniqueId), { data });
             await deleteDoc(doc.ref);
           });
+
+
+          const cartQuery = query(
+            collection(db, 'Cart' + user.uid),
+            where("uid", "==", user.uid)
+          );
+
+          const cartSnapshot = await getDocs(cartQuery);
+          const newCartProducts = cartSnapshot.docs.map((doc) => ({
+            ID: doc.id,
+            ...doc.data(),
+          }));
+
+          // Process each product in the cart
+          for (const product of newCartProducts) {
+            const productID = product.ID.split('-')[0];
+            const cartSize = product.size;
+            const qty = product.qty;
+            const cartColor = product.color;
+            const collectionName = product.collectionName;
+
+            console.log('Cart Product - ID:', productID);
+            console.log('Cart Product - Size:', cartSize);
+            console.log('Cart Product - Color:', cartColor);
+            console.log('Cart Product - Quantity:', qty);
+
+            // Reference to the specified collection
+            const collectionRef = collection(db, collectionName);
+            const collectionSnapshot = await getDocs(collectionRef);
+
+            // Map the collection documents into a dictionary format
+            const Dictionary = collectionSnapshot.docs.map((doc) => ({
+              ID: doc.id,
+              ref: doc.ref, // Add reference for updating later
+              ...doc.data(),
+            }));
+
+            // Find the specific document matching productID
+            const matchedDocument = Dictionary.find((doc) => doc.ID === productID);
+
+            if (matchedDocument) {
+              // Check if color and size in cart match with the data in the document
+              const sizeDataMatch = matchedDocument.sizes.find(
+                (sizeData) =>
+                  sizeData.size === cartSize && sizeData.color === cartColor
+              );
+
+              if (sizeDataMatch) {
+                console.log(`Match found for Product ID: ${productID}`);
+                console.log(
+                  `Matching Size: ${sizeDataMatch.size}, Color: ${sizeDataMatch.color}, Stock: ${sizeDataMatch.stock}`
+                );
+
+                // Update stock if qty is a number and there's enough stock
+                if (typeof qty === 'number' && sizeDataMatch.stock >= qty) {
+                  const newStock = sizeDataMatch.stock - qty;
+                  sizeDataMatch.stock = newStock;
+
+                  console.log(`Updated Stock for Product ID: ${productID}:`, newStock);
+
+                  // Update Firestore document with new stock value
+                  await updateDoc(matchedDocument.ref, {
+                    sizes: matchedDocument.sizes,
+                  });
+
+                  console.log(`Stock updated successfully for Product ID: ${productID}`);
+                } else {
+                  console.log(
+                    `Insufficient stock or invalid quantity for Product ID: ${productID}`
+                  );
+                }
+              } else {
+                console.log(
+                  `No match found for Size: ${cartSize} and Color: ${cartColor} in Product ID: ${productID}`
+                );
+              }
+            } else {
+              console.log(`Product with ID: ${productID} not found in ${collectionName}`);
+            }
+          }
 
           hideModal();
           toast.success('Your order has been placed successfully', {

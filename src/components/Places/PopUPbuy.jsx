@@ -22,7 +22,7 @@ const PopUPBuy = ({ singleProduct, showPopup, setShowPopup, nameAndprice, addToC
             ...product,
             title,
             price,
-            ID: `${nameAndprice.ID}-${product.color}`, // Concatenate ID with color for uniqueness
+            ID: `${nameAndprice.ID}-${product.color}-${product.size}`, // Concatenate ID with color for uniqueness
             url,
             collectionName
             
