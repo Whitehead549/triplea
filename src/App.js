@@ -10,6 +10,7 @@ import Cart from './pages/Cart';
 import { AddProducts } from './pages/AddProduct';
 import Signup from './pages/SignUp';
 import AdminPay from './pages/AdminPay';
+import Secure from './pages/Secure';
 
 
 const App = () => {
@@ -32,6 +33,7 @@ const App = () => {
           <Route path="/cart" element={<Cart/>  } />
           <Route path="/adminpay" element={<AdminPay/>  } />
           <Route path="/admin" element={<AddProducts/>  } />
+          <Route path="/secure" element={<Secure/>  } />
           <Route path="/signup" element={<Signup/>  } />
           <Route path="*" element={<NoPage />} />
         </Route>

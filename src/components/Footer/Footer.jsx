@@ -16,7 +16,7 @@ const FooterLinks = [
   
   {
     title: "Admin",
-    link: "/Admin",
+    link: "/secure",
   },
   {
     title: "Blogs",
