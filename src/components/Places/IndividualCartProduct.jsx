@@ -76,20 +76,27 @@ export const IndividualCartProduct = ({ cartProduct, cartProductIncrease, cartPr
       </div>
 
       {/* Total Price */}
-      <div className="flex items-center space-x-2">
-        <span className="text-xs text-gray-500">Total:</span>
-        <span className="text-sm font-bold text-blue-600">
-          N {cartProduct.TotalProductPrice}
-        </span>
-        <span className="text-xs text-gray-500 ml-4">Size:</span>
-        <span className="text-sm font-bold text-blue-600">
-          {cartProduct.size}
-        </span>
-        <span className="text-xs text-gray-500 ml-4">Color:</span>
-        <span className="text-sm font-bold text-blue-600">
-          {cartProduct.color}
-        </span>
-      </div>
+      <div className="flex flex-wrap items-center gap-2 sm:gap-4">
+  <div className="flex items-center gap-1">
+    <span className="text-xs text-gray-500">Total:</span>
+    <span className="text-sm font-bold text-blue-600">
+      N {cartProduct.TotalProductPrice}
+    </span>
+  </div>
+  <div className="flex items-center gap-1">
+    <span className="text-xs text-gray-500">Size:</span>
+    <span className="text-sm font-bold text-blue-600">
+      {cartProduct.size}
+    </span>
+  </div>
+  <div className="flex items-center gap-1">
+    <span className="text-xs text-gray-500">Color:</span>
+    <span className="text-sm font-bold text-blue-600">
+      {cartProduct.color}
+    </span>
+  </div>
+</div>
+
     </div>
   </div>
 
