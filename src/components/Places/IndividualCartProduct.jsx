@@ -44,13 +44,7 @@ export const IndividualCartProduct = ({ cartProduct, cartProductIncrease, cartPr
           {cartProduct.title}
         </div>
         <div className="text-xl font-bold text-green-600 mr-4">
-         {cartProduct.price}
-        </div>
-        <div className="text-xl font-bold text-green-600 mr-4">
-          {cartProduct.size}
-        </div>
-        <div className="text-xl font-bold text-green-600 mr-4">
-          {cartProduct.color}
+          $ {cartProduct.price}
         </div>
         <div className="text-gray-600 text-sm line-clamp-2 mr-4">
           {cartProduct.description}
@@ -78,6 +72,10 @@ export const IndividualCartProduct = ({ cartProduct, cartProductIncrease, cartPr
         <span className="text-gray-600 text-sm">Total Price:</span>
         <span className="text-lg font-bold text-blue-600 ml-2">
           $ {cartProduct.TotalProductPrice}
+        </span>
+        <span className="text-gray-600 text-sm">size:</span>
+        <span className="text-lg font-bold text-blue-600 ml-2">
+          $ {cartProduct.size}
         </span>
       </div>
     </div>
